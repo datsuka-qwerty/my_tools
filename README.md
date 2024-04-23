@@ -18,6 +18,7 @@ __日本語版は[こちら](/README.jp.md)__
 		- [user\_snippets\_latex.json](#user_snippets_latexjson)
 	- [./extension\_setting](#extension_setting)
 		- [Enhancer\_for\_YouTube.txt](#enhancer_for_youtubetxt)
+		- [SponsorBlockConfig.json](#sponsorblockconfigjson)
 		- [vimium-options.json](#vimium-optionsjson)
 	- [./HHKB](#hhkb)
 	- [./usercommand](#usercommand)
@@ -55,6 +56,9 @@ For more information, please see [my blog](https://datsuka-qwerty.hatenablog.com
 ## ./extension_setting
 ### Enhancer_for_YouTube.txt
 Enhancer for Youtube configuration file.  
+### SponsorBlockConfig.json
+Configuration file for SponsorBlock extension.  
+Replace the string in the Secret User ID section with your own ID.
 ### vimium-options.json
 This is a configuration file for vimium, an extension for Chrome.
 ## ./HHKB

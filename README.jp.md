@@ -17,6 +17,7 @@
 		- [user\_snippets\_latex.json](#user_snippets_latexjson)
 	- [./extension\_setting](#extension_setting)
 		- [Enhancer\_for\_YouTube.txt](#enhancer_for_youtubetxt)
+		- [SponsorBlockConfig.json](#sponsorblockconfigjson)
 		- [vimium-options.json](#vimium-optionsjson)
 	- [./HHKB](#hhkb)
 	- [./usercommand](#usercommand)
@@ -54,6 +55,9 @@ LateX用のVSCodeスニペットです。
 ## ./extension_setting
 ### Enhancer_for_YouTube.txt
 Enhancer for Youtubeの設定ファイルです。
+### SponsorBlockConfig.json
+SponsorBlock拡張機能の設定ファイルです。
+UserIDの部分を自身のIDに変更してください。
 ### vimium-options.json
 Chrome向け拡張機能のvimiumの設定ファイルです。
 ## ./HHKB
