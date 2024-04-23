@@ -25,6 +25,7 @@ __日本語版は[こちら](/README.jp.md)__
 		- [avcnv](#avcnv)
 		- [dis-install](#dis-install)
 		- [pdf2p](#pdf2p)
+		- [termux-install](#termux-install)
 		- [termux-url-opener](#termux-url-opener)
 		- [ytd](#ytd)
 		- [ytd.bat](#ytdbat)
@@ -73,6 +74,9 @@ Please append the save path before running.
 ### pdf2p
 This is a script that performs mutual conversion between PDF and JPG,PNG using the pdftoppm and convert commands.
 ```$ pdf2p <convert file>```
+### termux-install
+This is a script to install yt-dlp on Termux.  
+For more information, please see [my blog](https://datsuka-qwerty.hatenablog.com/entry/androidtips/termux-youtube-dl) (Japanese only)
 ### termux-url-opener
 This is a script to download videos etc. using yt-dlp on termux.  
 If placed in ~/bin, it can be run from the share screen.  

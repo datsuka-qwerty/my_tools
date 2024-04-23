@@ -24,6 +24,7 @@
 		- [avcnv](#avcnv)
 		- [dis-install](#dis-install)
 		- [pdf2p](#pdf2p)
+		- [termux-install](#termux-install)
 		- [termux-url-opener](#termux-url-opener)
 		- [ytd](#ytd)
 		- [ytd.bat](#ytdbat)
@@ -73,6 +74,8 @@ DiscordとBetterDiscordをインストールするためのスクリプトです
 PDFとJPG, PNGとを相互に変換できるスクリプトです。  
 pdftoppmとconvertコマンドを使ってます。
 ```$ pdf2p <変換したいファイル>```
+### termux-install
+termuxにyt-dlpをインストールするためのスクリプトです。
 ### termux-url-opener
 termux上でyt-dlpを使った動画のダウンロードを行うためのスクリプトです。  
 ~/binに配置すると、共有画面から実行できます。  
