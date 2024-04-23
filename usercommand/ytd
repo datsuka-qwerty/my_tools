@@ -1,0 +1,39 @@
+#!/bin/bash
+
+#Set video save path must include /
+cd ~/storage/downloads/youtube-dl/
+
+function function_usage() {
+		echo "Usage: $(basename ${0}) [OPTION]..."
+		echo "No option	Show this message"
+		echo "-h	Display help"
+		echo "-a	Download audio only"
+		echo "-U	Upgrade yt-dlp"
+		echo "-v	Video download"
+exit 2
+}
+
+while getopts :havU optKey; do
+	case "$optKey" in
+		h)
+			function_usage
+			;;
+		a)
+			yt-dlp --console-title -f "bestaudio[ext=m4a]/best[ext=m4a]" $2
+			;;
+		U)
+			pip install yt-dlp -U
+			;;
+		v)
+			yt-dlp --console-title --embed-thumbnail --embed-subs --sub-langs "ja" --no-write-auto-subs -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]" $2
+			;;
+		\?)
+			echo "Bad Option!!"
+			function_usage
+			;;
+		*)
+			function_usage
+			;;
+	esac
+done
+shift $((OPTIND - 1))
