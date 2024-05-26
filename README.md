@@ -25,6 +25,7 @@ __日本語版は[こちら](/README.jp.md)__
 		- [allrename](#allrename)
 		- [avcnv](#avcnv)
 		- [dis-install](#dis-install)
+		- [nano-install.sh](#nano-installsh)
 		- [pdf2p](#pdf2p)
 		- [termux-install](#termux-install)
 		- [termux-url-opener](#termux-url-opener)
@@ -75,6 +76,9 @@ All files in the current directory with the extension selected in the first argu
 ### dis-install
 This is a script to install Discord and BetterDisocrd.  
 Please append the save path before running.
+### nano-install.sh
+This is a script to build the nano environment.
+You can chose installing scopatz's nano syntax highlihting.
 ### pdf2p
 This is a script that performs mutual conversion between PDF and JPG,PNG using the pdftoppm and convert commands.
 ```$ pdf2p <convert file>```

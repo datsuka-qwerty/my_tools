@@ -24,6 +24,7 @@
 		- [allrename](#allrename)
 		- [avcnv](#avcnv)
 		- [dis-install](#dis-install)
+		- [nano-install.sh](#nano-installsh)
 		- [pdf2p](#pdf2p)
 		- [termux-install](#termux-install)
 		- [termux-url-opener](#termux-url-opener)
@@ -74,6 +75,10 @@ ffmpegがワイルドカードに非対応なので作りました。
 ### dis-install
 DiscordとBetterDiscordをインストールするためのスクリプトです。  
 毎回ブラウザ開くのメンドイので作りました。
+### nano-install.sh
+nanoの各種設定や、キーバイドを生成するスクリプトです。
+毎回.nanorcを編集するのが面倒で作りました。
+scopatz氏作成のシンタックスハイライトをダウンロードするオプションも入れました。
 ### pdf2p
 PDFとJPG, PNGとを相互に変換できるスクリプトです。  
 pdftoppmとconvertコマンドを使ってます。
