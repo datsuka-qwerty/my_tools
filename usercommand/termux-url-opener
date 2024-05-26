@@ -63,8 +63,10 @@ then
 		read -p " -> " SELECTN
 		echo "You selected ${SELECTN}"
 		read -p "User ID ->" USERID
+		stty -echo
 		read -p "Password ->" PASSWORD
-		if ["$SELECTN" -eq "1" ]
+		stty echo
+		if [ "$SELECTN" -eq "1" ]
 		then
 				yt-dlp -u $USERID -p $PASSWORD --embed-thumbnail --embed-subs --sub-langs "ja" --no-write-auto-subs -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]"  -o "$SAVE_PATH%(title)s[%(id)s]-%(uploader)s.mp4" $1
 		elif [ "$SELECTN" -eq "2" ]
