@@ -74,11 +74,13 @@ ffmpegがワイルドカードに非対応なので作りました。
 ```$ avcnv <変換前拡張子> <変換後拡張子>```
 ### dis-install
 DiscordとBetterDiscordをインストールするためのスクリプトです。  
-毎回ブラウザ開くのメンドイので作りました。
+毎回ブラウザ開くのメンドイので作りました。   
+``` bash <(curl -s https://raw.githubusercontent.com/datsuka-qwerty/my_tools/main/usercommand/dis-install) ```
 ### nano-install.sh
 nanoの各種設定や、キーバイドを生成するスクリプトです。
 毎回.nanorcを編集するのが面倒で作りました。
-scopatz氏作成のシンタックスハイライトをダウンロードするオプションも入れました。
+scopatz氏作成のシンタックスハイライトをダウンロードするオプションも入れました。   
+``` bash <(curl -s https://raw.githubusercontent.com/datsuka-qwerty/my_tools/main/usercommand/nano-install.sh) ```
 ### pdf2p
 PDFとJPG, PNGとを相互に変換できるスクリプトです。  
 pdftoppmとconvertコマンドを使ってます。
