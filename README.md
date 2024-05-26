@@ -76,11 +76,18 @@ All files in the current directory with the extension selected in the first argu
 ### dis-install
 This is a script to install Discord and BetterDisocrd.  
 Please append the save path before running.   
-``` bash <(curl -s https://raw.githubusercontent.com/datsuka-qwerty/my_tools/main/usercommand/dis-install) ```
+
+```sh
+bash <(curl -s https://raw.githubusercontent.com/datsuka-qwerty/my_tools/main/usercommand/dis-install)
+```
+
 ### nano-install.sh
 This is a script to build the nano environment.
 You can chose installing scopatz's nano syntax highlihting.   
-``` bash <(curl -s https://raw.githubusercontent.com/datsuka-qwerty/my_tools/main/usercommand/nano-install.sh) ```
+```sh
+bash <(curl -s https://raw.githubusercontent.com/datsuka-qwerty/my_tools/main/usercommand/nano-install.sh)
+```
+
 ### pdf2p
 This is a script that performs mutual conversion between PDF and JPG,PNG using the pdftoppm and convert commands.
 ```$ pdf2p <convert file>```
