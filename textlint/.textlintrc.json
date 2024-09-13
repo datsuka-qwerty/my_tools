@@ -1,0 +1,25 @@
+{
+  "filters": {
+    "comments": true,
+    "allowlist": {
+      "allow": []
+    }
+  },
+  "plugins": {},
+  "rules": {
+    "preset-ja-technical-writing": {
+      "max-kanji-continuous-len": {
+        "max": 10,
+        "allow": []
+      },
+      "ja-no-mixed-period": false
+    },
+    "preset-ja-spacing": true,
+    "prh": {
+      "rulePaths": [
+        "./rules-master/media/WEB+DB_PRESS.yml",
+        "./rules-master/media/techbooster.yml"
+      ]
+    }
+  }
+}
