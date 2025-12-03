@@ -1,0 +1,71 @@
+[
+	{
+		"Id": "45f7d2a4-d01f-45fd-9e7c-dd386fce9c55",
+		"Name": "揺れたときにずんだもんが喋る",
+		"Enabled": true,
+		"Trigger": {
+			"$type": "KyoshinShakeDetected",
+			"Level": 1,
+			"IsExact": false
+		},
+		"Action": {
+			"$type": "VoicevoxSpeech",
+			"TemplateText": "{{\r\n  for r in Regions\r\n    r + \" \"\r\n  end\r\n  \"で\"\r\n  case Level\r\n    when \"Weak\"\r\n      \"弱い\"\r\n    when \"Medium\"\r\n      \"\"\r\n    when \"Strong\"\r\n      \"強い\"\r\n    when \"Stronger\"\r\n      \"非常に強い\"\r\n    else\r\n      Level\r\n  end\r\n}}揺れを検知しました",
+			"WaitToEnd": false
+		}
+	},
+	{
+		"Id": "35d1d485-978f-4a9b-a927-78f74603d47b",
+		"Name": "EEW受信時にずんだもんが喋る",
+		"Enabled": true,
+		"Trigger": {
+			"$type": "Eew",
+			"New": true,
+			"NewWarning": false,
+			"ContinueWarning": false,
+			"Continue": false,
+			"UpdateWithMoreAccurate": false,
+			"Final": true,
+			"Cancel": true,
+			"CancelWarning": false,
+			"WarningLevelReached": true,
+			"IncreaseInIntensity": false,
+			"DecreaseInIntensity": false,
+			"Intensity": 6
+		},
+		"Action": {
+			"$type": "VoicevoxSpeech",
+			"TemplateText": "{{\r\n\tcase EventSubType\r\n\t\twhen \"New\"\r\n\t\t\tif IsWarning\r\n\t\t\t\tEpicenterPlaceName + \"を震源とする。緊急地震警報が発表されたのだ。\"\r\n\t\t\t\t\"警報なのだ。あぶないのだ。\"\r\n\t\t\t\t\"予想最大震度は\"\r\n\t\t\tcase Intensity\r\n\t\t\t\twhen \"Unknown\"\r\n\t\t\t\t\t\"不明なのだ\"\r\n\t\t\t\twhen \"Int0\"\r\n\t\t\t\t\t\"0なのだ\"\r\n\t\t\t\twhen \"Int1\"\r\n\t\t\t\t\t\"1なのだ\"\r\n\t\t\t\twhen \"Int2\"\r\n\t\t\t\t\t\"2なのだ\"\r\n\t\t\t\twhen \"Int3\"\r\n\t\t\t\t\t\"3なのだ\"\r\n\t\t\t\twhen \"Int4\"\r\n\t\t\t\t\t\"4なのだ\"\r\n\t\t\t\twhen \"Int5Lower\"\r\n\t\t\t\t\t\"5じゃくなのだ\"\r\n\t\t\t\twhen \"Int5Upper\"\r\n\t\t\t\t\t\"5きょうなのだ\"\r\n\t\t\t\twhen \"Int6Lower\"\r\n\t\t\t\t\t\"6じゃくなのだ\"\r\n\t\t\t\twhen \"Int6Upper\"\r\n\t\t\t\t\t\"6きょうなのだ\"\r\n\t\t\t\twhen \"Int7\"\r\n\t\t\t\t\t\"7なのだ\"\r\n\t\t\tend\r\n\t\t\telse\r\n\t\t\t\tEpicenterPlaceName + \"を震源とする。緊急地震速報が発表されたのだ。\"\r\n\t\t\t\t\"予想最大震度は\"\r\n\t\t\t\tcase Intensity\r\n\t\t\t\t\twhen \"Unknown\"\r\n\t\t\t\t\t\t\"不明なのだ\"\r\n\t\t\t\t\twhen \"Int0\"\r\n\t\t\t\t\t\t\"0なのだ\"\r\n\t\t\t\t\twhen \"Int1\"\r\n\t\t\t\t\t\t\"1なのだ\"\r\n\t\t\t\t\twhen \"Int2\"\r\n\t\t\t\t\t\t\"2なのだ\"\r\n\t\t\t\t\twhen \"Int3\"\r\n\t\t\t\t\t\t\"3なのだ\"\r\n\t\t\t\t\twhen \"Int4\"\r\n\t\t\t\t\t\t\"4なのだ\"\r\n\t\t\t\t\twhen \"Int5Lower\"\r\n\t\t\t\t\t\t\"5じゃくなのだ\"\r\n\t\t\t\t\twhen \"Int5Upper\"\r\n\t\t\t\t\t\t\"5きょうなのだ\"\r\n\t\t\t\t\twhen \"Int6Lower\"\r\n\t\t\t\t\t\t\"6じゃくなのだ\"\r\n\t\t\t\t\twhen \"Int6Upper\"\r\n\t\t\t\t\t\t\"6きょうなのだ\"\r\n\t\t\t\t\twhen \"Int7\"\r\n\t\t\t\t\t\t\"7なのだ\"\r\n\t\t\t\tend\r\n\t\t\t\t\"。注意するのだ\"\r\n\t\t\tend\r\n\twhen \"Final\"\r\n\t\tif IsWarning\r\n\t\t\tEpicenterPlaceName + \"を震源とする。緊急地震警報の最終報が発表されたのだ。\"\r\n\t\t\t\"警報なのだ。あぶないのだ。\"\r\n\t\t\t\"予想最大震度は\"\r\n\t\tcase Intensity\r\n\t\t\twhen \"Unknown\"\r\n\t\t\t\t\"不明なのだ\"\r\n\t\t\twhen \"Int0\"\r\n\t\t\t\t\"0なのだ\"\r\n\t\t\twhen \"Int1\"\r\n\t\t\t\t\"1なのだ\"\r\n\t\t\twhen \"Int2\"\r\n\t\t\t\t\"2なのだ\"\r\n\t\t\twhen \"Int3\"\r\n\t\t\t\t\"3なのだ\"\r\n\t\t\twhen \"Int4\"\r\n\t\t\t\t\"4なのだ\"\r\n\t\t\twhen \"Int5Lower\"\r\n\t\t\t\t\"5じゃくなのだ\"\r\n\t\t\twhen \"Int5Upper\"\r\n\t\t\t\t\"5きょうなのだ\"\r\n\t\t\twhen \"Int6Lower\"\r\n\t\t\t\t\"6じゃくなのだ\"\r\n\t\t\twhen \"Int6Upper\"\r\n\t\t\t\t\"6きょうなのだ\"\r\n\t\t\twhen \"Int7\"\r\n\t\t\t\t\"7なのだ\"\r\n\t\tend\r\n\t\telse\r\n\t\t\tEpicenterPlaceName + \"を震源とする。緊急地震速報の最終報が発表されたのだ。\"\r\n\t\t\t\"予想最大震度は\"\r\n\t\t\tcase Intensity\r\n\t\t\t\twhen \"Unknown\"\r\n\t\t\t\t\t\"不明なのだ\"\r\n\t\t\t\twhen \"Int0\"\r\n\t\t\t\t\t\"0なのだ\"\r\n\t\t\t\twhen \"Int1\"\r\n\t\t\t\t\t\"1なのだ\"\r\n\t\t\t\twhen \"Int2\"\r\n\t\t\t\t\t\"2なのだ\"\r\n\t\t\t\twhen \"Int3\"\r\n\t\t\t\t\t\"3なのだ\"\r\n\t\t\t\twhen \"Int4\"\r\n\t\t\t\t\t\"4なのだ\"\r\n\t\t\t\twhen \"Int5Lower\"\r\n\t\t\t\t\t\"5じゃくなのだ\"\r\n\t\t\t\twhen \"Int5Upper\"\r\n\t\t\t\t\t\"5きょうなのだ\"\r\n\t\t\t\twhen \"Int6Lower\"\r\n\t\t\t\t\t\"6じゃくなのだ\"\r\n\t\t\t\twhen \"Int6Upper\"\r\n\t\t\t\t\t\"6きょうなのだ\"\r\n\t\t\t\twhen \"Int7\"\r\n\t\t\t\t\t\"7なのだ\"\r\n\t\t\tend\r\n\t\t\t\"。注意するのだ\"\r\n\t\tend\r\n\t\twhen \"WarningLevelReached\"\r\n\t\t\tif IsWarning\r\n\t\t\t\t\"警報級に更新されたのだ。\"\r\n\t\t\t\t\"警報なのだ。あぶないのだ\"\r\n\t\t\tend\r\n\t\twhen \"Cancel\"\r\n\t\t\t\"さっきの発表は取り消されたのだ。とってもよかったのだ\"\r\n\tend\r\n}}",
+			"WaitToEnd": false
+		}
+	},
+	{
+		"Id": "a45829ea-8ec5-4218-b195-4bc0b8da2100",
+		"Name": "アプデがあるときにずんだもんが喋る",
+		"Enabled": true,
+		"Trigger": {
+			"$type": "UpdateAvailable",
+			"IsContinuous": false
+		},
+		"Action": {
+			"$type": "VoicevoxSpeech",
+			"TemplateText": "アップデートがあるのだ",
+			"WaitToEnd": false
+		}
+	},
+	{
+		"Id": "bf9f57bd-2b56-4442-a65e-f7308c58cba3",
+		"Name": "起動時にボイボも起動",
+		"Enabled": true,
+		"Trigger": {
+			"$type": "ApplicationStartup"
+		},
+		"Action": {
+			"$type": "ExecuteFile",
+			"FilePath": "C:\\Program Files\\VOICEVOX\\VOICEVOX.exe",
+			"WorkingDirectory": "",
+			"UseShellExecute": false,
+			"WaitToEnd": false
+		}
+	}
+]
