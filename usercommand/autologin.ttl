@@ -1,0 +1,186 @@
+; =================================================================
+; TTL マクロ：NW機器への自動ログイン、コマンド実行、ログ取得
+; =================================================================
+
+; -----------------------------------------------------------------
+; 1. 初期設定とログファイル名生成
+; -----------------------------------------------------------------
+filepath = 'your_config.csv'  ; ★ここをCSVファイルの実際のパスに書き換えてください★
+getdate date 'yyyymmdd'
+currentdir = getdir         ; 実行中のカレントディレクトリを取得
+
+; CSVファイルを開く
+fileopen csvfile filepath 
+
+if csvfile = -1 then
+    messagebox 'CSVファイルが開けません。パスを確認してください。' 'エラー'
+    end
+endif
+
+; CSVファイルの1行目（ヘッダー行）を読み飛ばす
+filereadln csvfile temp 
+if result = 1 then
+    messagebox 'CSVファイルにデータ行がありません。' 'エラー'
+    goto :end_macro
+endif
+
+; =================================================================
+; 2. CSV読み込みとメインループ
+; =================================================================
+:main_loop
+
+; 1行読み込み (読み込むデータがなくなったら終了)
+filereadln csvfile csvline
+if result = 1 then
+    goto :end_macro
+endif
+
+; カンマで区切られたデータを変数に格納
+; CSV列順: ホスト名, IPアドレス, 機種, 接続方法, ID, Password, 特権昇格用Password
+strsplit csvline ',' host ip device method user pass enable_pass
+
+; ログファイル名を作成: ホスト名_yyyymmdd.txt
+logname = currentdir
+strconcat logname '\'
+strconcat logname host
+strconcat logname '_'
+strconcat logname date
+strconcat logname '.txt'
+
+; ログファイル開始 (既存ファイルは上書き)
+logopen logname 0
+logwrite '--- 接続開始: ' host ' (' ip ') ---'
+
+; =================================================================
+; 3. 接続設定と4. 接続
+; =================================================================
+
+; 接続方式の判別と実行
+if method = 'ssh' then
+    ; SSH接続
+    connect ip ':22 /ssh /auth=password /user=' user
+elseif method = 'telnet' then
+    ; Telnet接続
+    connect ip ':23 /telnet /T=1'
+else
+    logwrite 'エラー: 接続方法が不正です -> ' method
+    messagebox '接続方法が不正です: ' method ' エラー'
+    goto :disconnect
+endif
+
+; 接続が失敗した場合の処理
+if result <> 1 then
+    logwrite 'エラー: 接続に失敗しました'
+    messagebox '接続に失敗しました: ' host ' (' ip ') ' 'エラー'
+    goto :disconnect
+endif
+
+; =================================================================
+; 5. ログイン認証 (Username / Password) - 汎用対応 ★ここが変更されました★
+; =================================================================
+
+; 1. 最初のプロンプトを待機 (Username: 1, login: 2, Password: 3)
+wait 'Username:' 'login:' 'Password:'
+
+; result変数の値に基づいて、どのプロンプトにマッチしたか判断
+if result = 3 then
+    goto :handle_password ; Password: が先に表示された場合
+endif
+
+; --- Username: / login: が表示された場合 (標準フロー) ---
+sendln user
+
+; 2. Password: のプロンプトを待機
+wait 'Password:'
+
+; --- パスワード処理 ---
+:handle_password
+sendln pass
+
+; 接続が完了するまで待機 (一般的なユーザ/特権プロンプトを待つ)
+wait '>' '#'
+
+; =================================================================
+; 6. コマンド実行 (機種別処理へ)
+; =================================================================
+call :switch_command
+
+; =================================================================
+; 7. ログアウトと切断
+; =================================================================
+:disconnect
+sendln 'exit'
+wait 'login:' 'Password:' ; ログアウトプロンプトを待つ（またはセッション終了）
+
+logwrite '--- 接続終了 ---'
+logclose
+disconnect
+
+goto :main_loop
+
+; =================================================================
+; 8. マクロ終了処理
+; =================================================================
+:end_macro
+fileclose csvfile
+messagebox 'CSVファイルに基づいた全処理が完了しました。' '完了'
+end
+
+; =================================================================
+; 9. サブルーチン: 機種別コマンド実行
+; =================================================================
+:switch_command
+
+; --- 機種による分岐とコマンド実行 ---
+
+if device = 'Allied' then
+    logwrite '--- コマンド実行: Allied ---'
+    
+    ; 特権昇格
+    sendln 'enable'
+    wait 'Password:' '#'
+
+    ; result変数の値に基づいて、どのプロンプトにマッチしたか判断
+    if result = 1 then
+        sendln enable_pass
+    endif
+
+    wait '#'
+
+    ; コマンド実行
+    sendln 'terminal length 0'
+    wait '#'
+    sendln 'show running-config'
+    wait '#'
+    
+    ; 特権モードから抜ける
+    sendln 'end'
+    wait '>'
+
+elseif device = 'Yamaha' then
+    logwrite '--- コマンド実行: Yamaha ---'
+
+    ; 特権昇格
+    sendln 'administrator'
+    wait 'Password:' '#'
+
+    ; result変数の値に基づいて、どのプロンプトにマッチしたか判断
+    if result = 1 then
+        sendln enable_pass
+    endif
+
+    ; コマンド実行
+    sendln 'show config'
+    wait '#'
+
+    ; 特権モードから抜ける
+    sendln 'exit save'
+    wait '>'
+
+else
+    ; その他 or 未定義の機種
+    logwrite '--- エラー: 機種 (' device ') のコマンドは未定義です ---'
+    messagebox '機種が未定義のためコマンドをスキップします: ' device ' スキップ'
+endif
+
+return
