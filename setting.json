@@ -1,55 +1,212 @@
 {
-	"todo-tree.regex.regex": "((//|#|%|<!--|;|/\\*|^)\\s*($TAGS)|^\\s*- \\[ \\])",
-	"todo-tree.general.tags": [
-		"BUG",
-		"bug",
-		"BUGS",
-		"bugs",
-		"TODO",
-		"ToDo",
-		"todo",
-		"TODOS",
-		"ToDos",
-		"todos",
-		"FIXME",
-		"fixme",
-		"FIX",
-		"fix",
-		"NOTE",
-		"note",
-		"WARNING",
-		"warning",
-		"Warning"
-	],
-	"todo-tree.general.tagGroups": {
-		"BUG":["bug", "BUGS", "bugs"],
-		"TODO":["ToDo", "todo", "TODOS", "ToDos", "todos"],
-		"FIXME": ["fixme","FIX", "fix"],
-		"NOTE":["note"],
-		"WARNING":["warning", "Warning"]
+	// General Editor Settings
+	"files.autoSave": "onFocusChange",
+	"editor.fontFamily": "Firple, \"Fira Code\"",
+	"editor.fontSize": 13,
+	"editor.fontLigatures": true,
+	"editor.insertSpaces": false,
+	"editor.renderWhitespace": "all",
+	"editor.wordWrap": "off",
+	"editor.guides.bracketPairs": false,
+	"editor.stickyScroll.enabled": false,
+	"editor.formatOnSave": true,
+	"editor.inlayHints.enabled": "off",
+	"diffEditor.wordWrap": "off",
+	"workbench.startupEditor": "none",
+	"explorer.confirmDelete": false,
+	"explorer.sortOrder": "type",
+	"commentTranslate.targetLanguage": "ja",
+	"workbench.editor.useModal": "off",
+	"workbench.colorTheme": "Gruvbox Material Dark (nv-h)",
+	"workbench.iconTheme": "material-icon-theme",
+	"gruvboxMaterial.darkContrast": "hard",
+	"gruvboxMaterial.darkCursor": "blue",
+	"gruvboxMaterial.darkSelection": "blue",
+	"gruvboxMaterial.darkWorkbench": "high-contrast",
+	"workbench.colorCustomizations": {
+		"icon.foreground": "#00B1BB",
+		"tab.activeBorder": "#00B1BB",
+		"badge.background": "#009199",
+		"textLink.foreground": "#009199",
+		"textLink.activeForeground": "#009199",
+		"dropdown.foreground": "#00B1BB",
+		"progressBar.background": "#009199",
+		"editor.lineHighlightBackground": "#1073cf2d",
+		"editor.lineHighlightBorder": "#9fced11f"
 	},
-	"todo-tree.highlights.customHighlight": {
-		"BUG":{
-			"iconColour": "#d3869b"
+	"background.windowBackgrounds": [
+		"https://i.imgur.com/g2ibX4T.jpeg"
+	],
+	"background.backgroundOpacity": [
+		0.8,
+		0.9,
+		0.9,
+		0.9
+	],
+	"background.autoInstall": true,
+	"background.useInvertedOpacity": true,
+	// Terminal Settings
+	"terminal.integrated.defaultProfile.windows": "Windows PowerShell",
+	"terminal.integrated.profiles.windows": {
+		"PowerShell": {
+			"source": "PowerShell",
+			"icon": "terminal-powershell"
 		},
-		"TODO": {
-		"iconColour": "#FF8C00"
+		"Command Prompt": {
+			"path": [
+				"${env:windir}\\Sysnative\\cmd.exe",
+				"${env:windir}\\System32\\cmd.exe"
+			],
+			"args": [
+				"/k",
+				"chcp",
+				"65001"
+			],
+			"icon": "terminal-cmd"
 		},
-		"FIXME":{
-			"iconColour": "#b8bb26"
+		"Git Bash": {
+			"source": "Git Bash"
 		},
-		"NOTE":{
-			"icon": "checklist",
-			"iconColour": "#52c1c7"
-		},
-		"WARNING":{
-			"icon": "alert",
-			"iconColour": "#FF2D00"
+		"Windows PowerShell": {
+			"path": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
 		}
 	},
+	"terminal.external.windowsExec": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+	// Language-Specific Settings
+	"[markdown]": {
+		"editor.defaultFormatter": "yzhang.markdown-all-in-one"
+	},
+	"[python]": {
+		"editor.formatOnType": true
+	},
+	"[dart]": {
+		"editor.formatOnSave": true,
+		"editor.formatOnType": true,
+		"editor.rulers": [
+			80
+		],
+		"editor.selectionHighlight": false,
+		"editor.suggestSelection": "first",
+		"editor.tabCompletion": "onlySnippets",
+		"editor.wordBasedSuggestions": "off"
+	},
+	"[latex]": {
+		"editor.defaultFormatter": "James-Yu.latex-workshop"
+	},
+	// LaTeX Workshop Settings
+	"latex-workshop.latex.tools": [
+		{
+			"name": "latexmk",
+			"command": "latexmk",
+			"args": [
+				"-e",
+				"$latex=q/uplatex %O -kanji=utf8 -no-guess-input-enc -synctex=1 -interaction=nonstopmode -file-line-error %S/",
+				"-e",
+				"$bibtex=q/bibtexu %O %B/",
+				"-e",
+				"$biber=q/biber %O --bblencoding=utf8 -u -U --output_safechars %B/",
+				"-e",
+				"$makeindex=q/upmendex %O -o %D %S/",
+				"-e",
+				"$dvipdf=q/dvipdfmx %O -o %D %S/",
+				"-norc",
+				"-gg",
+				"-pdfdvi",
+				"%DOC%"
+			]
+		}
+	],
+	"latex-workshop.linting.chktex.enabled": true,
+	"latex-workshop.linting.lacheck.enabled": true,
+	"latex-workshop.view.pdf.viewer": "tab",
+	"latex-workshop.latex.autoBuild.run": "never",
+	// TODO Tree Settings
+	"todo-tree.regex.regex": "(//|#|%|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+	//TODO "todo-tree.regex.regex": "((//|#|%|<!--|;|/\\*|^)\\s*($TAGS)|^\\s*- \\[ \\])",
+	"todo-tree.general.tags": [
+		"BUG:",
+		"bug:",
+		"BUGS:",
+		"bugs:",
+		"TODO:",
+		"ToDo:",
+		"todo:",
+		"TODOS:",
+		"ToDos:",
+		"todos:",
+		"FIXME:",
+		"fixme:",
+		"FIX:",
+		"fix:",
+		"NOTE:",
+		"note:",
+		"WARNING:",
+		"warning:",
+		"Warning:",
+		"[ ]",
+		"[x]"
+	],
+	"todo-tree.general.tagGroups": {
+		"BUG": [
+			"BUG:",
+			"bug:",
+			"BUGS:",
+			"bugs:"
+		],
+		"TODO": [
+			"TODO:",
+			"ToDo:",
+			"todo:",
+			"TODOS:",
+			"ToDos:",
+			"todos:",
+			"[ ]"
+		],
+		"FIXME": [
+			"FIXME:",
+			"fixme:",
+			"FIX:",
+			"fix:"
+		],
+		"NOTE": [
+			"NOTE:",
+			"note:",
+			"[x]"
+		],
+		"WARNING": [
+			"WARNING:",
+			"warning:",
+			"Warning:"
+		]
+	},
+	"todo-tree.highlights.customHighlight": {
+		"BUG": {
+			"iconColour": "#d3869b",
+			"foreground": "#d3869b"
+		},
+		"TODO": {
+			"iconColour": "#FF8C00",
+			"foreground": "#FF8C00"
+		},
+		"FIXME": {
+			"iconColour": "#b8bb26",
+			"foreground": "#b8bb26"
+		},
+		"NOTE": {
+			"icon": "checklist",
+			"iconColour": "#52c1c7",
+			"foreground": "#52c1c7"
+		},
+		"WARNING": {
+			"icon": "alert",
+			"iconColour": "#FF2D00",
+			"foreground": "#FF2D00"
+		}
+	},
+	// Better Comments Settings
 	"better-comments.tags": [
 		{
-			"tag": "bug",
+			"tag": "bug:",
 			"color": "#d3869b",
 			"strikethrough": false,
 			"underline": false,
@@ -58,7 +215,7 @@
 			"italic": false
 		},
 		{
-			"tag": "bugs",
+			"tag": "bugs:",
 			"color": "#d3869b",
 			"strikethrough": false,
 			"underline": false,
@@ -67,7 +224,7 @@
 			"italic": false
 		},
 		{
-			"tag": "todo",
+			"tag": "todo:",
 			"color": "#FF8C00",
 			"strikethrough": false,
 			"underline": false,
@@ -76,7 +233,7 @@
 			"italic": false
 		},
 		{
-			"tag": "todos",
+			"tag": "todos:",
 			"color": "#FF8C00",
 			"strikethrough": false,
 			"underline": false,
@@ -85,7 +242,16 @@
 			"italic": false
 		},
 		{
-			"tag": "fixme",
+			"tag": "[ ]",
+			"color": "#FF8C00",
+			"strikethrough": false,
+			"underline": false,
+			"backgroundColor": "transparent",
+			"bold": false,
+			"italic": false
+		},
+		{
+			"tag": "fixme:",
 			"color": "#b8bb26",
 			"strikethrough": false,
 			"underline": false,
@@ -94,7 +260,7 @@
 			"italic": false
 		},
 		{
-			"tag": "fix",
+			"tag": "fix:",
 			"color": "#b8bb26",
 			"strikethrough": false,
 			"underline": false,
@@ -103,7 +269,7 @@
 			"italic": false
 		},
 		{
-			"tag": "note",
+			"tag": "note:",
 			"color": "#52c1c7",
 			"strikethrough": false,
 			"underline": false,
@@ -112,7 +278,16 @@
 			"italic": false
 		},
 		{
-			"tag": "warning",
+			"tag": "[x]",
+			"color": "#52c1c7",
+			"strikethrough": false,
+			"underline": false,
+			"backgroundColor": "transparent",
+			"bold": false,
+			"italic": false
+		},
+		{
+			"tag": "warning:",
 			"color": "#FF2D00",
 			"strikethrough": false,
 			"underline": false,
@@ -156,5 +331,38 @@
 			"bold": false,
 			"italic": false
 		}
+	],
+	// Miscellaneous Settings
+	"clock.alignment": "Right",
+	"clock.format": "HH:MM:s",
+	"git.autofetch": true,
+	"latex-utilities.countWord.format": "${wordsBody} Words",
+	"vscord.app.name": "Visual Studio Code",
+	"vscord.status.details.text.debugging": "Debugging: {LANG}",
+	"vscord.status.details.text.editing": "",
+	"vscord.status.details.text.viewing": "In workspace",
+	"vscord.status.state.text.debugging": "",
+	"vscord.status.state.text.editing": "Working on {LANG}:{current_line}:{current_column}",
+	"vscord.status.state.text.viewing": "Viewing {LANG}",
+	"vscord.status.details.text.noWorkSpaceText": "",
+	"vscord.status.state.text.noWorkspaceFound": "",
+	"vscord.status.buttons.button1.git.active.url": "https://github.com/datsuka-qwerty?tab=repositories",
+	"vscord.status.buttons.button1.git.idle.url": "https://github.com/datsuka-qwerty?tab=repositories",
+	"vscord.status.buttons.button1.git.inactive.url": "https://github.com/datsuka-qwerty?tab=repositories",
+	"markdown-preview-enhanced.previewTheme": "github-light.css",
+	"svgPreview.autoOpen": false,
+	"textlint.run": "onType",
+	"textlint.configPath": "$HOME/.textlintrc.json",
+	"textlint.nodePath": "",
+	"indentRainbow.indicatorStyle": "light",
+	"indentRainbow.lightIndicatorStyleLineWidth": 2,
+	"indentRainbow.colors": [
+		"rgba(255,255,64,0.3)",
+		"rgba(127,255,127,0.3)",
+		"rgba(255,127,255,0.3)",
+		"rgba(79,236,236,0.3)"
+	],
+	"vscode_custom_css.imports": [
+		"https://gist.githubusercontent.com/Ynng/3275eb9cb2b5816554877e5518417f44/raw/1447d34712a59a1ac48ae1ce6da18c5460ea7cea/custom.css"
 	],
 }
