@@ -12,9 +12,13 @@
 		- [GAS\_payroll.js](#gas_payrolljs)
 		- [installed\_app\_list.json](#installed_app_listjson)
 		- [keymap.txt](#keymaptxt)
+		- [kyoshin\_Eew\_Viewer\_Ingen\_workflow.json](#kyoshin_eew_viewer_ingen_workflowjson)
 		- [Microsoft.PowerShell\_profile.ps1](#microsoftpowershell_profileps1)
 		- [setting.json](#settingjson)
 		- [user\_snippets\_latex.json](#user_snippets_latexjson)
+		- [vscode\_custom\_css.css](#vscode_custom_csscss)
+		- [VlcPrevNext.lua](#vlcprevnextlua)
+		- [init.vim](#initvim)
 	- [./extension\_setting](#extension_setting)
 		- [Enhancer\_for\_YouTube.txt](#enhancer_for_youtubetxt)
 		- [SponsorBlockConfig.json](#sponsorblockconfigjson)
@@ -30,7 +34,6 @@
 		- [termux-url-opener](#termux-url-opener)
 		- [ytd](#ytd)
 		- [ytd.bat](#ytdbat)
-	- [./vivaldi\_thumbnails](#vivaldi_thumbnails)
 
 # About the tools
 ## ./
@@ -44,15 +47,22 @@ Windowsのクリーンインストール時に毎回wingetで、インストー�
 ### keymap.txt
 Google日本語入力でIMEのキーマップを変更するための設定ファイルです。
 Ctrl+SpaceでIMEのオン・オフができるようにしています。
+### kyoshin_Eew_Viewer_Ingen_workflow.json
+Kyoshin Eew Viewer Ingenでずんだもんが喋れるようにする設定ファイルです。
 ### Microsoft.PowerShell_profile.ps1
 Powershell7のプロフィールです。  
 oh my poshのテーマを設定しています。
 ### setting.json
-todo tree用のVSCodeのsetting.jsonです。  
-詳しくは、[記事](https://datsuka-qwerty.hatenablog.com/entry/latex/linux_install)をご覧ください。
+VSCodeのsetting.jsonです。  
 ### user_snippets_latex.json
 LateX用のVSCodeスニペットです。
 詳しくは、[記事](https://datsuka-qwerty.hatenablog.com/entry/latex/linux_install)をご覧ください。
+### vscode_custom_css.css
+VSCodeのロゴをKawaiiロゴにするCSSです。
+### VlcPrevNext.lua
+同じフォルダにある動画を連続再生するVLC用の拡張機能です。
+### init.vim
+vimの設定ファイルです。
 ## ./extension_setting
 ### Enhancer_for_YouTube.txt
 Enhancer for Youtubeの設定ファイルです。
@@ -105,5 +115,3 @@ yt-dlpを実行するためのスクリプトです。
 ### ytd.bat
 Windows版です。
 ```C:/> ytd [option] <URL>```
-## ./vivaldi_thumbnails
-Vivaldiブラウザーのスピードダイヤルで使っているロゴ達です。

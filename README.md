@@ -13,9 +13,13 @@ __日本語版は[こちら](/README.jp.md)__
 		- [GAS\_payroll.js](#gas_payrolljs)
 		- [installed\_app\_list.json](#installed_app_listjson)
 		- [keymap.txt](#keymaptxt)
+		- [kyoshin\_Eew\_Viewer\_Ingen\_workflow.json](#kyoshin_eew_viewer_ingen_workflowjson)
 		- [Microsoft.PowerShell\_profile.ps1](#microsoftpowershell_profileps1)
 		- [setting.json](#settingjson)
 		- [user\_snippets\_latex.json](#user_snippets_latexjson)
+		- [vscode\_custom\_css.css](#vscode_custom_csscss)
+		- [VlcPrevNext.lua](#vlcprevnextlua)
+		- [init.vim](#initvim)
 	- [./extension\_setting](#extension_setting)
 		- [Enhancer\_for\_YouTube.txt](#enhancer_for_youtubetxt)
 		- [SponsorBlockConfig.json](#sponsorblockconfigjson)
@@ -31,7 +35,6 @@ __日本語版は[こちら](/README.jp.md)__
 		- [termux-url-opener](#termux-url-opener)
 		- [ytd](#ytd)
 		- [ytd.bat](#ytdbat)
-	- [./vivaldi\_thumbnails](#vivaldi_thumbnails)
 
 # About the tools
 ## ./
@@ -45,15 +48,22 @@ This is the list of software that should be installed first in Windows using win
 ### keymap.txt
 This is the IME keymap configuration file for Google Japanese Input.  
 It is set up so that you can turn on/off IME by pressing Ctrl+Space.
+### kyoshin_Eew_Viewer_Ingen_workflow.json
+Voice Vox settings for Kyoshin Eew Viewer Ingen.
 ### Microsoft.PowerShell_profile.ps1
 This is a Powershell7 configuration file.  
 It sets up a theme using oh my posh.
 ### setting.json
-This is the VSCode configuration file for the todo tree.  
-For more information, please see [my blog](https://datsuka-qwerty.hatenablog.com/entry/latex/linux_install) (Japanese only)
+This is the VSCode configuration file.
 ### user_snippets_latex.json
 This is a VSCode snippet for LaTeX.  
 For more information, please see [my blog](https://datsuka-qwerty.hatenablog.com/entry/latex/linux_install) (Japanese only)
+### vscode_custom_css.css
+This is Override VSCode Logo to Kawaii Logo.
+### VlcPrevNext.lua
+Play next video in same folder feature for VLC media player.
+### init.vim
+My vim settings.
 ## ./extension_setting
 ### Enhancer_for_YouTube.txt
 Enhancer for Youtube configuration file.  
@@ -104,5 +114,3 @@ This is a script to download videos, etc. using yt-dlp.
 ### ytd.bat
 This is a script to download videos, etc. using yt-dlp.  
 ```C:/> ytd [option] <URL>```
-## ./vivaldi_thumbnails
-This is the logo used in the speed dial of the vivaldi browser
