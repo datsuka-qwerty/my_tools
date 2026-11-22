@@ -34,6 +34,7 @@
 		- [termux-url-opener](#termux-url-opener)
 		- [ytd](#ytd)
 		- [ytd.bat](#ytdbat)
+		- [zsh-p10k-setup](#zsh-p10k-setup)
 
 # About the tools
 ## ./
@@ -115,3 +116,10 @@ yt-dlpを実行するためのスクリプトです。
 ### ytd.bat
 Windows版です。
 ```C:/> ytd [option] <URL>```
+### zsh-p10k-setup
+zshのインストールと、Powerlevel10kのインストールを行うスクリプトです。  
+面倒で作りました。  
+シンタックスハイライト, オートコンプリート, 不足コマンド検索するプラグインも入ってます。   
+```sh
+bash <(curl -s https://raw.githubusercontent.com/datsuka-qwerty/my_tools/main/usercommand/nano-install.sh)
+```

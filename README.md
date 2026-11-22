@@ -35,6 +35,7 @@ __日本語版は[こちら](/README.jp.md)__
 		- [termux-url-opener](#termux-url-opener)
 		- [ytd](#ytd)
 		- [ytd.bat](#ytdbat)
+		- [zsh-p10k-setup](#zsh-p10k-setup)
 
 # About the tools
 ## ./
@@ -114,3 +115,10 @@ This is a script to download videos, etc. using yt-dlp.
 ### ytd.bat
 This is a script to download videos, etc. using yt-dlp.  
 ```C:/> ytd [option] <URL>```
+### zsh-p10k-setup
+This is a script to install zsh and Powerlevel10k.  
+I made it because it was too much trouble to do manually.  
+It also includes plugins for syntax highlighting, auto-completion, and missing command search.   
+```sh
+bash <(curl -s https://raw.githubusercontent.com/datsuka-qwerty/my_tools/main/usercommand/nano-install.sh)
+```
