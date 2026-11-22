@@ -121,5 +121,5 @@ zshのインストールと、Powerlevel10kのインストールを行うスク�
 面倒で作りました。  
 シンタックスハイライト, オートコンプリート, 不足コマンド検索するプラグインも入ってます。   
 ```sh
-bash <(curl -s https://raw.githubusercontent.com/datsuka-qwerty/my_tools/main/usercommand/nano-install.sh)
+bash <(curl -s https://raw.githubusercontent.com/datsuka-qwerty/my_tools/main/usercommand/zsh-p10k-setup.sh)
 ```

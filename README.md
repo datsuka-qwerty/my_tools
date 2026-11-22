@@ -120,5 +120,5 @@ This is a script to install zsh and Powerlevel10k.
 I made it because it was too much trouble to do manually.  
 It also includes plugins for syntax highlighting, auto-completion, and missing command search.   
 ```sh
-bash <(curl -s https://raw.githubusercontent.com/datsuka-qwerty/my_tools/main/usercommand/nano-install.sh)
+bash <(curl -s https://raw.githubusercontent.com/datsuka-qwerty/my_tools/main/usercommand/zsh-p10k-setup.sh)
 ```
