@@ -87,6 +87,7 @@ bind ^R replace main
 bind ^C copy main
 bind ^V paste all
 bind ^Z undo all
+bind ^O writeout main
 
 EOF
 if [ $? -eq 0 ]; then
